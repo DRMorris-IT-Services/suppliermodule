@@ -74,12 +74,18 @@ class SuppliersController extends Controller
      * @param  \App\suppliers  $suppliers
      * @return \Illuminate\Http\Response
      */
-    public function show(suppliers $suppliers, $id, suppliers_contacts $model, suppliers_contact_history $history, purchases $purchases)
+    public function show(suppliers $suppliers, $id, suppliers_contacts $model, suppliers_contact_history $history )
     {
         //
         
-        return view('suppliers::view',['supplier' => $suppliers->where('supplier_id', $id)->get(), 'supplier_contacts' => $model->paginate(6), 'contact_history' => $history->orderby('contact_date','DESC')->paginate(6), 'purchases' => $purchases->where('supplier_id',$id)->orderby('invoice_date','DESC')->paginate(6),
-        'count_contacts' => $model->where('supplier_id', $id)->count(),'count_crm' => $history->where('supplier_id', $id)->count(),'count_invoices' => $purchases->where('supplier_id', $id)->count(),
+        return view('suppliers::view',[
+            'supplier' => $suppliers->where('supplier_id', $id)->get(), 
+            'supplier_contacts' => $model->paginate(6), 
+            'contact_history' => $history->orderby('contact_date','DESC')->paginate(6), 
+            
+            'count_contacts' => $model->where('supplier_id', $id)->count(),
+            'count_crm' => $history->where('supplier_id', $id)->count(),
+            
         ]);
 
     }
