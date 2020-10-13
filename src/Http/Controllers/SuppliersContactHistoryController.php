@@ -1,8 +1,10 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace duncanrmorris\suppliers\Http\Controllers;
+use Illuminate\Routing\Controller;
+use Illuminate\Support\Facades\View;
 
-use App\suppliers_contact_history;
+use duncanrmorruis\suppliers\App\suppliers_contact_history;
 use Illuminate\Http\Request;
 
 class SuppliersContactHistoryController extends Controller

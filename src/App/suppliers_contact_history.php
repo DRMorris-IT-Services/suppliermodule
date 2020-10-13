@@ -1,6 +1,6 @@
 <?php
 
-namespace App;
+namespace duncanrmorris\suppliers\App;
 
 use Illuminate\Database\Eloquent\Model;
 

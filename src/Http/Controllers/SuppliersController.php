@@ -1,15 +1,18 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace duncanrmorris\suppliers\Http\Controllers;
 
-use App\suppliers;
+use Illuminate\Routing\Controller;
+use Illuminate\Support\Facades\View;
+
+use duncanrmorris\suppliers\App\suppliers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Str;
 
-use App\suppliers_contacts;
-use App\suppliers_contact_history;
-use App\purchases;
+use duncanrmorris\suppliers\App\suppliers_contacts;
+use duncanrmorris\suppliers\App\suppliers_contact_history;
+use duncanrmorris\suppliers\App\purchases;
 
 
 class SuppliersController extends Controller
@@ -23,7 +26,7 @@ class SuppliersController extends Controller
     {
         //
 
-        return view('suppliers.suppliers', ['suppliers' => $suppliers->orderby('Company','ASC')->get()]);
+        return view('suppliers::suppliers', ['suppliers' => $suppliers->orderby('Company','ASC')->get()]);
         
     }
 
@@ -35,7 +38,7 @@ class SuppliersController extends Controller
     public function create()
     {
         //
-        return view('suppliers.new');
+        return view('suppliers::new');
     }
 
     /**
@@ -75,7 +78,7 @@ class SuppliersController extends Controller
     {
         //
         
-        return view('suppliers.view',['supplier' => $suppliers->where('supplier_id', $id)->get(), 'supplier_contacts' => $model->paginate(6), 'contact_history' => $history->orderby('contact_date','DESC')->paginate(6), 'purchases' => $purchases->where('supplier_id',$id)->orderby('invoice_date','DESC')->paginate(6),
+        return view('suppliers::view',['supplier' => $suppliers->where('supplier_id', $id)->get(), 'supplier_contacts' => $model->paginate(6), 'contact_history' => $history->orderby('contact_date','DESC')->paginate(6), 'purchases' => $purchases->where('supplier_id',$id)->orderby('invoice_date','DESC')->paginate(6),
         'count_contacts' => $model->where('supplier_id', $id)->count(),'count_crm' => $history->where('supplier_id', $id)->count(),'count_invoices' => $purchases->where('supplier_id', $id)->count(),
         ]);
 
@@ -91,7 +94,7 @@ class SuppliersController extends Controller
     {
         //
       
-        return view('suppliers.edit',['suppliers' => $suppliers->where('supplier_id', $id)->get()]);
+        return view('suppliers::edit',['suppliers' => $suppliers->where('supplier_id', $id)->get()]);
 
     }
 
