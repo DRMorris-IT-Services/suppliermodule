@@ -1,0 +1,14 @@
+{
+    "name": "duncanrmorris/suppliers",
+    "description": "The Suppliers Package for Laravel ^7.2",
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Duncan Morris",
+            "email": "duncanmorris07@outlook.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {}
+}
