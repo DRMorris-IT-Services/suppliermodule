@@ -5,11 +5,22 @@
         <div class="container">
             @include('suppliers::layouts.alerts')
 
+        <ul class="nav nav-tabs" id="myTab" role="tablist">
+            <li class="nav-item">
+              <a class="nav-link active" id="home-tab" href="{{route('suppliers')}}" role="tab" aria-controls="home" aria-selected="true">List</a>
+            </li>
+            
+            <li class="nav-item">
+              <a class="nav-link" id="profile-tab" href="{{ route('suppliers.new') }}" role="tab" aria-controls="profile" aria-selected="false">New Supplier</a>
+            </li>
+            
+          </ul>
+
        
             <div class="row justify-content-center">
                 <div class="col-md-12">
                     <div class="card">
-                        <div class="card-header">{{ __('New Supplier') }}</div>
+                        <div class="card-header"><h3>{{ __('New Supplier') }}</h3></div>
         
                         <div class="card-body">
                             <form class="col-md-12" action="{{ route('suppliers.add') }}" method="POST" enctype="multipart/form-data">
@@ -55,7 +66,7 @@
                 <!-- timeline item 2 -->
                 <div class="row no-gutters">
                     <div class="col-sm py-2">
-                        <div class="card border-info shadow">
+                        <div class="card ">
                             <div class="card-body">
                                 
                                 <h4 class="card-title text-muted">2. Address</h4>
