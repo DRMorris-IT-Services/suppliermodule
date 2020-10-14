@@ -10,11 +10,11 @@
             <li class="nav-item">
               <a class="nav-link active" id="home-tab" href="{{route('suppliers')}}" role="tab" aria-controls="home" aria-selected="true">List</a>
             </li>
-            @if (AUTH::user()->suppliers_add == "on")
+            
             <li class="nav-item">
               <a class="nav-link" id="profile-tab" href="{{ route('suppliers.new') }}" role="tab" aria-controls="profile" aria-selected="false">New Supplier</a>
             </li>
-            @endif
+            
           </ul>
           
        
